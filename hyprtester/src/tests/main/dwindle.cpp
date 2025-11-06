@@ -125,7 +125,6 @@ static bool horizontalResizeTest(int cornerMode) {
         getFromSocket("/dispatch focuswindow class:KittyB");
         getFromSocket("/dispatch resizeactive 10 0");
         SWindowSize newSize = getActiveWindowSize();
-        std::cerr << "RESIZE_DIR.B = " << RESIZE_DIR.B << std::endl;
         EXPECT((newSize.x == kittyBSize.x + (RESIZE_DIR.B * 10)), true)
         getFromSocket("/dispatch resizeactive -10 0");
 
@@ -136,8 +135,6 @@ static bool horizontalResizeTest(int cornerMode) {
         getFromSocket("/dispatch focuswindow class:KittyC");
         getFromSocket("/dispatch resizeactive 10 0");
         SWindowSize newSize = getActiveWindowSize();
-        std::cerr << "Old size: " << kittyCSize.x << std::endl;
-        std::cerr << "New size: " << newSize.x << std::endl;
         EXPECT((newSize.x == kittyCSize.x + (RESIZE_DIR.C * 10)), true)
         getFromSocket("/dispatch resizeactive -10 0");
 
@@ -200,7 +197,6 @@ static bool verticalResizeTest(int cornerMode) {
         getFromSocket("/dispatch focuswindow class:KittyB");
         getFromSocket("/dispatch resizeactive 0 10");
         SWindowSize newSize = getActiveWindowSize();
-        std::cerr << "RESIZE_DIR.B = " << RESIZE_DIR.B << std::endl;
         EXPECT((newSize.y == kittyBSize.y + (RESIZE_DIR.B * 10)), true)
         getFromSocket("/dispatch resizeactive 0 -10");
 
@@ -211,8 +207,6 @@ static bool verticalResizeTest(int cornerMode) {
         getFromSocket("/dispatch focuswindow class:KittyC");
         getFromSocket("/dispatch resizeactive 0 10");
         SWindowSize newSize = getActiveWindowSize();
-        std::cerr << "Old size: " << kittyCSize.x << std::endl;
-        std::cerr << "New size: " << newSize.x << std::endl;
         EXPECT((newSize.y == kittyCSize.y + (RESIZE_DIR.C * 10)), true)
         getFromSocket("/dispatch resizeactive 0 -10");
 
